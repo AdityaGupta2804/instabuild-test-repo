@@ -12,9 +12,9 @@ steps:
 
   # Uncomment this step to intentionally break the build
   # and test InstaBuild's AI-powered build failure analysis.
-  #
-  # - name: Intentional Failure
-  #   run: node -e "const err = new Error('Intentional InstaBuild test failure - simulated database connection timeout after 30000ms to mongodb://prod-db:27017/app'); console.error('ERROR [DatabaseService]:', err.message); console.error(err.stack); process.exit(1);"
+  
+  - name: Intentional Failure
+    run: node -e "const err = new Error('Intentional InstaBuild test failure - simulated database connection timeout after 30000ms to mongodb://prod-db:27017/app'); console.error('ERROR [DatabaseService]:', err.message); console.error(err.stack); process.exit(1);"
 
 deploy:
   frontend:
