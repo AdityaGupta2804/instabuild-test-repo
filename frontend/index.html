@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>InstaBuild Test App</title>
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 600px; margin: 60px auto; padding: 20px; }
+    h1 { color: #1a1a2e; }
+    .status { margin-top: 20px; padding: 12px; border-radius: 6px; background: #f0f0f0; }
+    .success { background: #d4edda; color: #155724; }
+    .error { background: #f8d7da; color: #721c24; }
+    button { padding: 10px 20px; background: #4361ee; color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 14px; }
+    button:hover { background: #3a56d4; }
+  </style>
+</head>
+<body>
+  <h1>InstaBuild Test Application</h1>
+  <p>Frontend is working</p>
+  <p><em>This frontend is intended for deployment to Vercel as a static site.</em></p>
+
+  <button onclick="checkHealth()">Check Backend Health</button>
+  <div id="result" class="status" style="display:none;"></div>
+
+  <script src="src/main.js"></script>
+</body>
+</html>
