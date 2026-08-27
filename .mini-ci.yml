@@ -1,0 +1,25 @@
+image: node:18
+
+steps:
+  - name: Install Backend Dependencies
+    run: cd backend && npm install
+
+  - name: Run Tests
+    run: node tests/run-with-server.js
+
+  - name: Validate Frontend
+    run: test -f frontend/index.html && echo "Frontend index.html exists" && grep -q "InstaBuild Test Application" frontend/index.html && echo "Frontend content validated"
+
+  # Uncomment this step to intentionally break the build
+  # and test InstaBuild's AI-powered build failure analysis.
+  #
+  # - name: Intentional Failure
+  #   run: node -e "const err = new Error('Intentional InstaBuild test failure - simulated database connection timeout after 30000ms to mongodb://prod-db:27017/app'); console.error('ERROR [DatabaseService]:', err.message); console.error(err.stack); process.exit(1);"
+
+deploy:
+  frontend:
+    platform: vercel
+    path: ./frontend
+  backend:
+    platform: render
+    path: ./backend
